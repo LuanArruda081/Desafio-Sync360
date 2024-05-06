@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <title>Desafio Sync360</title>
+    
+</head>
+<body>
+
+    <header>
+        <img src="./Imagens/logo- sync.png" alt="">
+    </header>
+
+    <main>
+        <section  id="perfil">
+            
+            <div class="perfil-info">
+                <label class="picture" for="picture__input" tabIndex="0">
+                    <span class="picture__image"></span>
+                  </label>
+                  
+                  <input type="file" name="picture__input" id="picture__input">
+                  <img src="./icones/editar.png" alt="editar" id="editar" width="20px" style="cursor: pointer;" onclick="mostrarDiv()">
+            </div>
+
+            <div id="bio">
+                <h2 id="nomeH2">Luan Vinícius</h2>
+                <p id="biografia">Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                     Laborum, modi. Nesciunt sint recusandae ducimus similique <br>
+                     dolor officiis, soluta eligendi quidem consequuntur nequebr <br>   
+                     ad earum optio eveniet molestias aliquid. Vel, officiis.</p>
+
+                     
+            </div>
+
+            <div id="informacoes">
+                <div class="info">
+             <span><img src="./icones/idade.png" width="20px"> <p id="idade">19 Anos</p> </span> 
+             <span><img src="./icones/endereco.png" width="20px"> <p id="endereco"> Av. professor José dos anjos</p></span> 
+             <span> <img src="./icones/bairro.png"  width="20px"> <p id="bairro">Tamarineira</p></span> 
+             <span> <img src="./icones/cidade.png" alt="" width="20px"> <p id="cidade">Recife</p></span>
+             <span> <img src="./icones/estado.png" alt="" width="20px"><p id="estado">Pernambuco</p></span>
+
+            </div>  
+            
+        </section>
+    
+                
+    
+
+
+
+            
+            
+        
+    </main>
+
+    
+    
+    <div id="overlay">
+        
+        <div id="mudar-nome-bio">
+            
+        <input type="text" name="nome" id="inputNomes" placeholder="Nome" oninput="atualizarNome()">
+        <input type="textarea" name="bio" id="inputBiografias" placeholder="biografia" style="height: 100px;" oninput="atualizarBio()">
+        <input type="number" name="idade" id="inputIdades" placeholder="Idade">
+        <input type="text" name="endereco" id="inputEnderecos" placeholder="Endereço">
+        <input type="text" name="bairro" id="inputBairros" placeholder="Bairro">
+        <input type="text" name="cidade" id="inputCidades" placeholder="Cidade">
+        <input type="text" name="estado" id="inputEstados" placeholder="Estado">
+
+
+      <div class="botao">  
+        <button id="save" onclick="salvar()">Salvar</button>
+        <button id="cancel" onclick="fechar()">Cancelar</button>
+    </div>
+    
+     
+</div>
+
+</div>
+
+</body>
+
+<script>
+    const inputFile = document.querySelector("#picture__input");
+const pictureImage = document.querySelector(".picture__image");
+const pictureImageTxt = "Escolha uma imagem";
+pictureImage.innerHTML = pictureImageTxt;
+
+inputFile.addEventListener("change", function (e) {
+  const inputTarget = e.target;
+  const file = inputTarget.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+
+    reader.addEventListener("load", function (e) {
+      const readerTarget = e.target;
+
+      const img = document.createElement("img");
+      img.src = readerTarget.result;
+      img.classList.add("picture__img");
+
+      pictureImage.innerHTML = "";
+      pictureImage.appendChild(img);
+    });
+
+    reader.readAsDataURL(file);
+  } else {
+    pictureImage.innerHTML = pictureImageTxt;
+  }
+});
+
+
+
+document.getElementById('editar').addEventListener('click', function() {
+    document.getElementById('overlay').style.display = 'flex';
+    document.getElementById('mudar-nome-bio').style.display = 'flex';
+});
+
+document.getElementById('overlay').addEventListener('click', function(event) {
+    if (event.target.id === 'overlay') {
+        document.getElementById('overlay').style.display = 'none';
+        document.getElementById('mudar-nome-bio').style.display = 'none';
+    }
+});
+
+
+document.getElementById('cancel').addEventListener('click', function() {
+    document.getElementById('overlay').style.display = 'none';
+    document.getElementById('mudar-nome-bio').style.display = 'none';
+});
+
+document.getElementById('overlay').addEventListener('click', function(event) {
+    if (event.target.id === 'overlay') {
+        document.getElementById('overlay').style.display = 'flex';
+        document.getElementById('mudar-nome-bio').style.display = 'flex';
+    }
+});
+
+
+
+        function atualizarNome() {
+            var inputNome = document.getElementById('inputNomes').value;
+            document.getElementById('nomeH2').textContent = inputNome;
+
+           
+            
+        }
+
+        function atualizarBio(){
+            var inputBiografias = document.getElementById('inputBiografias').value;
+            document.getElementById('biografia').textContent = inputBiografias;
+
+        }
+
+
+        function atualizarIdade(){
+            var inputIdades = document.getElementById('inputIdades').value;
+            document.getElementById('idade').textContent = inputIdades;
+
+        }
+
+</script>
+</html>
