@@ -12,16 +12,13 @@ header{
     text-align: center;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
     position: relative; 
-    z-index: 2;
+    z-index: 9999;
 }
 
 body{
     background-color: rgb(232, 253, 253);
 }
 
-#perfil{
-    
-}
 
 .perfil-info{
     background-color: white;
@@ -34,6 +31,7 @@ body{
     justify-content: center;
     gap: 4rem;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1;
 }
 #picture__input {
     display: none;
@@ -61,6 +59,8 @@ body{
     
   }
   
+  
+
   .picture:hover {
     color: #777;
     background: #ccc;
@@ -94,6 +94,7 @@ body{
     width: 800px;
     border-radius: 30px ;
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    
   }
 
   #bio h2{
@@ -127,6 +128,38 @@ body{
     display: flex;
     gap: 1rem;
  }
+
+  #alterar{
+    display: none;
+    background-color: #00ff88;
+    color: white;
+    width: 50%;
+    padding: 10px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+  
+    animation: slideDown 1s forwards, slideUp 1s 4s forwards;;
+    z-index: 9998;
+  }
+
+  @keyframes slideDown {
+    from {
+        top: -100px;
+    }
+    to {
+        top: 0;
+    }
+}
+
+@keyframes slideUp {
+  from {
+      top: 0;
+  }
+  to {
+      top: -100px;
+  }
+}
 
  #mudar-nome-bio{
     display: none;
@@ -192,7 +225,86 @@ body{
     background-color: #ff0040;
  }
  #editar{
-   position: absolute;
-   top: 350px;
-   left: 68%;
+  position: relative;
+  top: 115px ;
+  left: 45%;
  }
+
+ .info span{
+  align-items: center;
+ }
+
+
+
+
+ @media (max-width:360px) {
+  header{
+    width:100% ;
+  }
+  .picture{
+    bottom: 470px;
+    left: 60px;
+  }
+  #editar{
+    left: 130px;
+  }
+}
+
+
+
+ @media (max-width: 480px) {
+  
+
+  header{
+    width: 100%;
+  }
+
+  .perfil-info{
+    width: 320px;
+  }
+    
+  #bio{
+    width: 320px;
+  }
+
+  #informacoes{
+    width: 320px;
+  }
+ }
+
+@media (min-width:481px) and (max-width: 800px) {
+    header{
+      width: 100%;
+
+    }
+    .perfil-info{
+      width: 400px;
+    }
+
+
+    #bio{
+      width: 400px;
+    }
+
+    #informacoes{
+      width: 400px;
+    }
+
+
+  }
+
+
+
+
+ @media (min-width:801px) and (max-width: 1200px) {
+    .picture{
+      position: relative;
+      top: 120px;
+      left: 50px;
+    }
+
+    #editar{
+      left: 24%;
+    }
+
+  }
