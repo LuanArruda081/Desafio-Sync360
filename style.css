@@ -131,17 +131,17 @@ body{
 
   #alterar{
     display: none;
-    background-color: #00ff88;
+    background-color: rgba(0, 255, 136, 0.8);;
     color: white;
+    border-radius: 10px;
     width: 50%;
     padding: 10px;
     text-align: center;
     position: fixed;
-    top: 25%;
-    margin-top: 90px; 
+    top: 0;
     left: 25%; 
     animation: slideDown 1s forwards, slideUp 1s 4s forwards;;
-    z-index: 200;
+    z-index: 9999;
   }
 
   @keyframes slideDown {
@@ -290,8 +290,7 @@ body{
     #informacoes{
       width: 400px;
     }
-
-
+  
   }
 
 
