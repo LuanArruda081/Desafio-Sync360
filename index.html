@@ -199,6 +199,10 @@ document.getElementById('overlay').addEventListener('click', function(event) {
             document.getElementById('overlay').style.display = 'none';
             document.getElementById('mudar-nome-bio').style.display = 'none';
             document.getElementById('alterar').style.display = 'block';
+            setTimeout(function() {
+  
+            document.getElementById('alterar').style.display = 'none';
+            }, 4500); 
 
         }
 }

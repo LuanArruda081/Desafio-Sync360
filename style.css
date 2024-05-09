@@ -135,12 +135,13 @@ body{
     color: white;
     width: 50%;
     padding: 10px;
-    margin: 0 auto;
     text-align: center;
-    position: relative;
-  
+    position: fixed;
+    top: 25%;
+    margin-top: 90px; 
+    left: 25%; 
     animation: slideDown 1s forwards, slideUp 1s 4s forwards;;
-    z-index: 9998;
+    z-index: 200;
   }
 
   @keyframes slideDown {
